@@ -6,6 +6,12 @@ export default function Deletar(){
   return(
     <>
         <h2>Exclusão de Livros</h2>
+        <div>
+          <label>Insira o id do livro: </label>
+          <input type='text'></input>
+          <br/>
+          <button>Excluir</button>
+        </div>
     </>
   )
 }
