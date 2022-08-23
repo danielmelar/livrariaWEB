@@ -6,6 +6,7 @@ export default function Editar(){
   return(
     <>
         <h2>Edição de Livros</h2>
+        <br/>
         <div>
           <label>Insira o id do livro: </label>
           <input type='text'></input>

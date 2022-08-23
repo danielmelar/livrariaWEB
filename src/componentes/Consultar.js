@@ -7,6 +7,7 @@ export default function Consultar(){
     <>
         <h2>Consulta de Livros</h2>
         <p>não insira nenhum id para obter a lista completa</p>
+        <br/>
         <div>
           <label>Insira o id do livro: </label>
           <input type='text'></input>

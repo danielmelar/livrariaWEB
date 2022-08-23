@@ -61,37 +61,35 @@ export default function App(){
 
   return(
     <section>
-      <div>
-        <h2>Livraria WEB</h2>
-      </div>
-      <div>
-        <p>O que deseja fazer?</p>
-      </div>
-      <div className='menu'>
-        <ul>
-          <li>
-            <button onClick={()=>LinksPaginas(1)}>Consultar</button>
-          </li>
-          <li>
-            <button onClick={()=>LinksPaginas(2)}>Cadastrar</button>
-          </li>
-          <li>
-            <button onClick={()=>LinksPaginas(3)}>Editar</button>
-          </li>
-          <li>
-            <button onClick={()=>LinksPaginas(4)}>Deletar</button>
-          </li>
-        </ul>
-      </div>
-      <div className='telaFuncao'>
-        <p>tela de função</p>
-        {retornarTela()}
-      </div>
-      <div className='telaResult'>
-        <p>tela de resultados</p>
-      </div>
-      <div>
-        
+        <div className='titulo'>
+          <h2>Livraria WEB</h2>
+        </div>
+      <div className='tela'>
+        <div>
+        </div>
+        <div className='menu'>
+          <p>O que deseja fazer?</p>
+          <ul>
+            <li>
+              <button onClick={()=>LinksPaginas(1)}>Consultar</button>
+            </li>
+            <li>
+              <button onClick={()=>LinksPaginas(2)}>Cadastrar</button>
+            </li>
+            <li>
+              <button onClick={()=>LinksPaginas(3)}>Editar</button>
+            </li>
+            <li>
+              <button onClick={()=>LinksPaginas(4)}>Deletar</button>
+            </li>
+          </ul>
+        </div>
+        <div className='telaFuncao'>
+          {retornarTela()}
+        </div>
+        <div>
+          
+        </div>
       </div>
     </section>
   )
