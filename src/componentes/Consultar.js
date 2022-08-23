@@ -1,6 +1,17 @@
 import React, {useEffect, useState} from 'react'
+import api from '../services/api'
 
 export default function Consultar(){
+
+  const [livro, setLivro] = useState([])
+
+  useEffect(() => {
+    api.get("books")
+    .then((resposta) => setLivro(resposta.data))
+    .catch((err) => {
+      console.log("Houve um erro!" + err)
+    })
+  }, [])
     
 
   return(

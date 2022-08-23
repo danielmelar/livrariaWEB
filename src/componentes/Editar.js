@@ -1,6 +1,22 @@
 import React, {useEffect, useState} from 'react'
+import api from '../services/api'
 
 export default function Editar(){
+
+  var id = 25
+  
+  const [livro, setLivro] = useState([])
+
+  useEffect(() => {
+    api.put("books/" + id, {
+      titulo: "A biblia",
+      autor: "homem"
+    })
+    .then((resposta) => setLivro(resposta.data))
+    .catch((err) => {
+      console.log("Houve um erro!" + err)
+    })
+  }, [])
     
 
   return(
