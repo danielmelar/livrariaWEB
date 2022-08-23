@@ -5,6 +5,7 @@ export default function Consultar(){
 
   const [livro, setLivro] = useState([])
 
+  /*
   useEffect(() => {
     api.get("books")
     .then((resposta) => setLivro(resposta.data))
@@ -12,6 +13,17 @@ export default function Consultar(){
       console.log("Houve um erro!" + err)
     })
   }, [])
+  */
+
+  const metodoGet=()=>{
+    api.get("books")
+    .then((resposta) => setLivro(resposta.data))
+    .catch((err) => {
+      console.log("Houve um erro!" + err)
+    })
+
+    console.log(livro)
+  }
     
 
   return(
@@ -23,7 +35,9 @@ export default function Consultar(){
           <label>Insira o id do livro: </label>
           <input type='text'></input>
           <br/>
-          <button>Consultar</button>
+          <button onClick={()=>metodoGet()}>Consultar</button>
+        </div>
+        <div>
         </div>
     </>
   )

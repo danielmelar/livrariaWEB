@@ -5,16 +5,41 @@ export default function Cadastrar(){
 
   const [livro, setLivro] = useState([])
 
+  const [titulo, setTitulo] = useState('')
+  const handlerChangetitulo=(e)=>{
+    setTitulo(e.target.value)
+  }
+  const [autor, setAutor] = useState('')
+  const handlerChangeautor=(e)=>{
+    setAutor(e.target.value)
+  }
+
+  /*
   useEffect(() => {
     api.post("books", {
-      titulo: "Eu, Robo",
-      autor: "Isaac Asimov"
+      titulo: titulo,
+      autor: autor
     })
     .then((resposta) => setLivro(resposta.data))
     .catch((err) => {
       console.log("Houve um erro!" + err)
     })
   }, [])
+  */
+
+  const metodoPost=()=>{
+    api.post("books", {
+      titulo: titulo,
+      autor: autor
+    })
+    .then((resposta) => setLivro(resposta.data))
+    .catch((err) => {
+      console.log("Houve um erro!" + err)
+    })
+
+    console.log("livro inserido com sucesso!")
+  }
+
     
 
   return(
@@ -23,12 +48,14 @@ export default function Cadastrar(){
         <br/>
         <div>
           <label>Insira o titulo do livro: </label>
-          <input type='text'></input>
+          <input type='text' value={titulo} onChange={(e)=> handlerChangetitulo(e)}></input>
+          <p>titulo: {titulo}</p>
           <br/>
           <label>Insira o nome do autor: </label>
-          <input type='text'></input>
+          <input type='text' value={autor} onChange={(e)=> handlerChangeautor(e)}></input>
+          <p>titulo: {autor}</p>
           <br/>
-          <button>Cadastrar</button>
+          <button onClick={()=> metodoPost()}>Cadastrar</button>
         </div>
     </>
   )

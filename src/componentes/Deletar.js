@@ -3,10 +3,14 @@ import api from '../services/api'
 
 export default function Deletar(){
 
-  var id = 26
+  const [id, setId] = useState()
+  const handlerChangeid=(e)=>{
+    setId(e.target.value)
+  }
 
   const [livro, setLivro] = useState([])
 
+  /*
   useEffect(() => {
     api.delete("books/" + id)
     .then((resposta) => setLivro(resposta.data))
@@ -14,6 +18,17 @@ export default function Deletar(){
       console.log("Houve um erro!" + err)
     })
   }, [])
+  */
+
+  const metodoDelete=()=>{
+    api.delete("books/" + id)
+    .then((resposta) => setLivro(resposta.data))
+    .catch((err) => {
+      console.log("Houve um erro!" + err)
+    })
+
+    console.log("livro deletado com sucesso!")
+  }
     
 
   return(
@@ -22,9 +37,9 @@ export default function Deletar(){
         <br/>
         <div>
           <label>Insira o id do livro: </label>
-          <input type='text'></input>
+          <input type='text' value={id} onChange={(e)=>handlerChangeid(e)}></input>
           <br/>
-          <button>Excluir</button>
+          <button onClick={()=>metodoDelete()} >Excluir</button>
         </div>
     </>
   )
