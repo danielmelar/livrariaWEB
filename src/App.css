@@ -25,9 +25,10 @@ p {
   color: #65dc98;
 }
 
-ul {
+li {
   list-style: none;
 }
+
 
 .menu {
   border: 2px;
@@ -76,14 +77,21 @@ button {
 
 .telaFuncao {
   background-color: #1c1a2b;
-  height: 350px;
-  width: 500px;
+  min-height: 350px;
+  min-width: 500px;
   margin: 10px;
   margin-right: 0;
   padding-top: 5%;
   padding-left: 5%;
   border-style: solid;
   border-radius: 5px;
+}
+
+.telaResult {
+  background-color: #1c1a2b;
+  margin: 50px;
+  padding-top: 5%;
+  padding-left: 5%;
 }
 
 .titulo {

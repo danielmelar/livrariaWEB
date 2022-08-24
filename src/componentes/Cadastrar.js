@@ -37,7 +37,7 @@ export default function Cadastrar(){
       console.log("Houve um erro!" + err)
     })
 
-    console.log("livro inserido com sucesso!")
+    window.alert("livro cadastrado com sucesso!")
   }
 
     
@@ -53,7 +53,7 @@ export default function Cadastrar(){
           <br/>
           <label>Insira o nome do autor: </label>
           <input type='text' value={autor} onChange={(e)=> handlerChangeautor(e)}></input>
-          <p>titulo: {autor}</p>
+          <p>autor: {autor}</p>
           <br/>
           <button onClick={()=> metodoPost()}>Cadastrar</button>
         </div>

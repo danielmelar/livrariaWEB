@@ -16,20 +16,24 @@ export default function Editar(){
     setAutor(e.target.value)
   }
   
-  const [livro, setLivro] = useState([])
+  const [livros, setLivro] = useState([])
 
   /*
   useEffect(() => {
     api.put("books/" + id, {
-      titulo: "A biblia",
-      autor: "homem"
+      titulo: titulo,
+      autor: autor
     })
     .then((resposta) => setLivro(resposta.data))
     .catch((err) => {
       console.log("Houve um erro!" + err)
     })
+
+    window.alert("livro editado com sucesso!")
+
   }, [])
   */
+  
 
   const metodoUpdate=()=>{
     api.put("books/" + id, {
@@ -41,7 +45,7 @@ export default function Editar(){
       console.log("Houve um erro!" + err)
     })
 
-    console.log("livro editado com sucesso!")
+    window.alert("livro editado com sucesso!")
   }
     
 
@@ -54,7 +58,7 @@ export default function Editar(){
           <input type='text' value={id} onChange={(e)=>handlerChangeid(e)}></input>
           <button>Buscar</button>
           <br/>
-          <p>Titulo: {}</p>
+          <p>Titulo:</p>
           <label>Insira um novo titulo do livro: </label>
           <input type='text' value={titulo} onChange={(e)=>handlerChangetitulo(e)}></input>
           <br/>
@@ -62,7 +66,7 @@ export default function Editar(){
           <label>Insira um novo nome do autor: </label>
           <input type='text' value={autor} onChange={(e)=>handlerChangeautor(e)}></input>
           <br/>
-          <button onClick={()=>metodoUpdate()}>Editar</button>
+          <button onClick={()=> metodoUpdate()}>Editar</button>
         </div>
     </>
   )

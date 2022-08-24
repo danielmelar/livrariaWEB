@@ -27,7 +27,7 @@ export default function Deletar(){
       console.log("Houve um erro!" + err)
     })
 
-    console.log("livro deletado com sucesso!")
+    window.alert("livro deletado com sucesso!")
   }
     
 
