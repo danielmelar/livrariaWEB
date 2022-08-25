@@ -1,0 +1,35 @@
+[33mcommit 056de38e294589e530e8f6c7a6b5e251d725eea3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: daniel <dnielyuri09@gmail.com>
+Date:   Wed Aug 24 15:31:40 2022 -0300
+
+    funções crud implementadas no site
+
+[33mcommit 83361d1d75e30beea304705a2efe543987346956[m
+Author: daniel <dnielyuri09@gmail.com>
+Date:   Tue Aug 23 11:21:39 2022 -0300
+
+    funções do CRUD adicionadas nos botões
+
+[33mcommit 6ea97cbca60fbc178b5d8b1ef402b5c49ba3fee2[m
+Author: daniel <dnielyuri09@gmail.com>
+Date:   Tue Aug 23 10:45:01 2022 -0300
+
+    adicionado axios e requisições http nas telas
+
+[33mcommit 52100e26fd4c294b509886a1d0c06e96ef1f9ecc[m
+Author: daniel <dnielyuri09@gmail.com>
+Date:   Tue Aug 23 03:56:59 2022 -0300
+
+    estilização finalizada
+
+[33mcommit 4c5eeec26474f529f11ae8560a8ef99c8737da4b[m
+Author: daniel <dnielyuri09@gmail.com>
+Date:   Mon Aug 22 14:15:28 2022 -0300
+
+    front tela funcoes
+
+[33mcommit d32fe2468be76f83c73faadb1226b605fb3a1df3[m
+Author: daniel <dnielyuri09@gmail.com>
+Date:   Mon Aug 22 14:00:58 2022 -0300
+
+    commit inicial

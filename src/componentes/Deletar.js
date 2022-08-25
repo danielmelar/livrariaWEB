@@ -3,7 +3,7 @@ import api from '../services/api'
 
 export default function Deletar(){
 
-  const [id, setId] = useState()
+  const [id, setId] = useState('')
   const handlerChangeid=(e)=>{
     setId(e.target.value)
   }
@@ -21,6 +21,9 @@ export default function Deletar(){
   */
 
   const metodoDelete=()=>{
+    if(id == ""){
+      return window.alert("campo vazio!")
+    }else{
     api.delete("books/" + id)
     .then((resposta) => setLivro(resposta.data))
     .catch((err) => {
@@ -28,6 +31,7 @@ export default function Deletar(){
     })
 
     window.alert("livro deletado com sucesso!")
+  }
   }
     
 

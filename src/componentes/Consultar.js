@@ -6,7 +6,7 @@ export default function Consultar(){
 
   const [livros, setLivro] = useState([])
 
-  const [id, setId] = useState()
+  const [id, setId] = useState('')
   const handlerChangeid=(e)=>{
     setId(e.target.value)
   }
@@ -30,20 +30,28 @@ export default function Consultar(){
   }
   */
 
+  const buscaId = livros.find(item => {
+    return item.id == id;
+  })
+
+  const selecionaId=()=>{
+    if(buscaId === buscaId){
+      return window.alert("Id: " + buscaId.id + "\n"+"Titulo: " +  buscaId.titulo + "\n"+"Autor: " + buscaId.autor) 
+    }
+  }
+
 
   return(
     <>
         <h2>Consulta de Livros</h2>
-        <p>não insira nenhum id para obter a lista completa</p>
         <br/>
         <div>
           <label>Insira o id do livro: </label>
           <input type='text' value={id} onChange={(e)=>handlerChangeid(e)}></input>
           <br/>
-          <button>Consultar</button>
+          <button onClick={()=> selecionaId()}>Consultar</button>
         </div>
         <div className='telaResult'>
-        
         {livros?.map(livro => (
           <li key={livro.id}>
             <p>Id: {livro.id}</p>
@@ -57,4 +65,4 @@ export default function Consultar(){
         
     </>
   )
-}
+        }

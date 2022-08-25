@@ -3,7 +3,7 @@ import api from '../services/api'
 
 export default function Editar(){
 
-  const [id, setId] = useState()
+  const [id, setId] = useState('')
   const handlerChangeid=(e)=>{
     setId(e.target.value)
   }
@@ -44,9 +44,12 @@ export default function Editar(){
     .catch((err) => {
       console.log("Houve um erro!" + err)
     })
-
+    
     window.alert("livro editado com sucesso!")
+    
   }
+
+  
     
 
   return(

@@ -27,7 +27,11 @@ export default function Cadastrar(){
   }, [])
   */
 
+
   const metodoPost=()=>{
+    if(titulo == "" || autor == ""){
+      return window.alert("Campo titulo e autor não podem ser vazios")
+    }else{
     api.post("books", {
       titulo: titulo,
       autor: autor
@@ -36,8 +40,9 @@ export default function Cadastrar(){
     .catch((err) => {
       console.log("Houve um erro!" + err)
     })
-
+    
     window.alert("livro cadastrado com sucesso!")
+    }
   }
 
     
