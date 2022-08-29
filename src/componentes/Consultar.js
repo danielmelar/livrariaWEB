@@ -2,35 +2,14 @@ import React, {useEffect, useState} from 'react'
 import api from '../services/api'
 import '../App.css'
 
-export default function Consultar(){
-
-  const [livros, setLivro] = useState([])
-
+export default function Consultar(props){
+  
   const [id, setId] = useState('')
   const handlerChangeid=(e)=>{
     setId(e.target.value)
   }
 
-  
-  useEffect(() => {
-    api.get("books")
-    .then((resposta) => setLivro(resposta.data))
-    .catch((err) => {
-      console.log("Houve um erro!" + err)
-    })
-  }, [])
-    
-  /*
-  const metodoGet=()=>{
-    api.get("books")
-    .then((response) => setLivro({livros:response.data}))
-    .catch((err) => {
-      console.log("Houve um erro!" + err)
-    })
-  }
-  */
-
-  const buscaId = livros.find(item => {
+  const buscaId = props.livros.find(item => {
     return item.id == id;
   })
 
@@ -52,7 +31,7 @@ export default function Consultar(){
           <button onClick={()=> selecionaId()}>Consultar</button>
         </div>
         <div className='telaResult'>
-        {livros?.map(livro => (
+        {props.livros?.map(livro => (
           <li key={livro.id}>
             <p>Id: {livro.id}</p>
             <p>Titulo: {livro.titulo}</p>

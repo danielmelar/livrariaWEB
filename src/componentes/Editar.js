@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import api from '../services/api'
 
-export default function Editar(){
+export default function Editar(props){
 
   const [id, setId] = useState('')
   const handlerChangeid=(e)=>{
@@ -15,32 +15,24 @@ export default function Editar(){
   const handlerChangeautor=(e)=>{
     setAutor(e.target.value)
   }
-  
-  const [livros, setLivro] = useState([])
 
-  /*
-  useEffect(() => {
-    api.put("books/" + id, {
-      titulo: titulo,
-      autor: autor
-    })
-    .then((resposta) => setLivro(resposta.data))
-    .catch((err) => {
-      console.log("Houve um erro!" + err)
+  const buscaLivro=()=>{
+    const livro = props.livros.find(item =>{
+      return item.id == id
     })
 
-    window.alert("livro editado com sucesso!")
-
-  }, [])
-  */
+    setTitulo(livro.titulo)
+    setAutor(livro.autor)
+  }
   
 
+  
   const metodoUpdate=()=>{
     api.put("books/" + id, {
       titulo: titulo,
       autor: autor
     })
-    .then((resposta) => setLivro(resposta.data))
+    .then((resposta) => props.setLivro(resposta.data))
     .catch((err) => {
       console.log("Houve um erro!" + err)
     })
@@ -48,10 +40,7 @@ export default function Editar(){
     window.alert("livro editado com sucesso!")
     
   }
-
   
-    
-
   return(
     <>
         <h2>Edição de Livros</h2>
@@ -59,13 +48,15 @@ export default function Editar(){
         <div>
           <label>Insira o id do livro: </label>
           <input type='text' value={id} onChange={(e)=>handlerChangeid(e)}></input>
-          <button>Buscar</button>
+          <button onClick={()=>buscaLivro()}>Buscar</button>
           <br/>
-          <p>Titulo:</p>
+          <br/>
+          <p>Titulo: {titulo}</p>
           <label>Insira um novo titulo do livro: </label>
           <input type='text' value={titulo} onChange={(e)=>handlerChangetitulo(e)}></input>
           <br/>
-          <p>Autor: {}</p>
+          <br/>
+          <p>Autor: {autor}</p>
           <label>Insira um novo nome do autor: </label>
           <input type='text' value={autor} onChange={(e)=>handlerChangeautor(e)}></input>
           <br/>

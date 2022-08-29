@@ -3,11 +3,23 @@ import Consultar from './componentes/Consultar'
 import Cadastrar from './componentes/Cadastrar'
 import Deletar from './componentes/Deletar'
 import Editar from './componentes/Editar'
+import api from './services/api'
 import './App.css'
 
 export default function App(){
 
   const [tela, setTela]=useState(0)
+
+  const [livros, setLivro] = useState([])
+
+  
+  useEffect(() => {
+    api.get("books")
+    .then((resposta) => setLivro(resposta.data))
+    .catch((err) => {
+      console.log("Houve um erro!" + err)
+    })
+  }, [])
 
     
   const LinksPaginas=(t)=>{
@@ -38,13 +50,17 @@ export default function App(){
   // função que ira retornar as paginas
   const retornarTela=()=>{
     if (tela==1){
-      return <Consultar/>
+      return <Consultar
+        livros={livros}
+      />
     }
     else if(tela==2){
       return <Cadastrar/>
     }
     else if(tela==3){
-      return <Editar/>
+      return <Editar
+      livros={livros}
+      />
     }
     else if(tela==4){
       return <Deletar/>
